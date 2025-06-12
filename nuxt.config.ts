@@ -6,11 +6,27 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     '@element-plus/nuxt',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    'nuxt-auth-sanctum'
   ],
-  runtimeConfig: {
-    public: {
-      apiBase: 'http://localhost:8000/api'
+  sanctum: {
+    baseUrl: 'http://localhost:8000',
+    endpoints: {
+      csrf: '/sanctum/csrf-cookie',
+      login: '/api/login',
+      logout: '/api/logout',
+      user: '/api/user'
+    },
+    csrf: {
+      cookie: 'XSRF-TOKEN',
+      header: 'X-XSRF-TOKEN'
+    },
+    redirect: {
+      keepRequestedRoute: true,
+      onLogin: '/dashboard',
+      onLogout: '/',
+      onAuthOnly: '/',
+      onGuestOnly: '/'
     }
-  }
+  },
 })
