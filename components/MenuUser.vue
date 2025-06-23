@@ -8,43 +8,54 @@
   >
     <el-menu-item index="1">
       <template #title>
-        <Icon name="material-symbols-light:home-outline-rounded" class="text-2xl"/>
-        <span>Inicio</span>
+        <NuxtLink to="/dashboard" class="flex space-x-2 items-center !w-full">
+          <Icon name="material-symbols-light:home-outline-rounded" class="text-2xl"/>
+          <span>Inicio</span>
+        </NuxtLink>
       </template>
     </el-menu-item>
 
     <el-menu-item index="2">
       <template #title>
         <Icon name="hugeicons:computer-desk-01" class="text-2xl"/>
-        <span>Taller</span>
+        <span class="ml-2">Taller</span>
       </template>
     </el-menu-item>
 
     <el-menu-item index="3">
       <template #title>
         <Icon name="material-symbols-light:book-outline" class="text-2xl"/>
-        <span>Kardex</span>
+        <span class="ml-2">Kardex</span>
       </template>
     </el-menu-item>
 
     <el-menu-item index="4">
       <template #title>
         <Icon name="lets-icons:date-range" class="text-2xl"/>
-        <span>Horario</span>
-      </template>
+        <span class="ml-2">Horario</span>
+      </template >
     </el-menu-item>
 
     <el-menu-item index="5">
       <template #title>
         <Icon name="streamline-cyber:network" class="text-2xl"/>
-        <span>Oferta laboral</span>
+        <span class="ml-2">Oferta laboral</span>
       </template>
     </el-menu-item>
 
-    <el-menu-item index="6" @click="handleLogout">
+    <el-menu-item index="6">
+      <template #title>
+        <NuxtLink to="/workshop" class="flex space-x-2 items-center !w-full">
+          <Icon name="lsicon:file-import-filled" class="text-2xl"/>
+          <span>Importar lista</span>
+        </NuxtLink>
+      </template>
+    </el-menu-item>
+
+    <el-menu-item index="7" @click="handleLogout">
       <template #title>
         <Icon name="material-symbols-light:logout-rounded" class="text-2xl"/>
-        <span>Salir</span>
+        <span class="ml-2">Salir</span>
       </template>
     </el-menu-item>
   </el-menu>
