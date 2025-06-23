@@ -67,7 +67,7 @@ async function handleLogin() {
   error.value = null
 
   try {
-    await login({
+    const data= await login({
       email: form.value.username,
       password: form.value.password
     })

@@ -26,7 +26,10 @@ export default defineNuxtConfig({
       onLogin: '/dashboard',
       onLogout: '/',
       onAuthOnly: '/',
-      onGuestOnly: '/'
-    }
+      onGuestOnly: '/dashboard'
+    },
+    globalMiddleware: {
+      enabled: true,
+    },
   },
 })

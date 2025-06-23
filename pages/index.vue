@@ -19,5 +19,7 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
+<script setup>
+  definePageMeta({
+  })
 </script>
