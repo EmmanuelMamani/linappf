@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     'nuxt-auth-sanctum'
   ],
+
   sanctum: {
     baseUrl: 'http://localhost:8000',
     endpoints: {
@@ -32,4 +33,13 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+
+  app: {
+    baseURL: '/',
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: 'http://localhost:8000/api',
+    }
+  }
 })
