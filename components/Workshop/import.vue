@@ -58,6 +58,7 @@ const types = ref([])
 const config = useRuntimeConfig()
 const sanctum = useSanctumClient()
 const requiredHeaders = ['name', 'ci', 'code_plan', 'birthdate', 'code_est']
+const emit = defineEmits(['update:workshopList'])
 
 const rules = {
   type: [{required: true, message: 'Selecciona un tipo de lista', trigger: 'change'}],
@@ -142,9 +143,7 @@ async function imported() {
           },
         })
 
-        console.log(workshop)
-
-
+        emit('update:workshopList', workshop)
 
         // Resetear formulario
         form.value = { list: [], type: null }
