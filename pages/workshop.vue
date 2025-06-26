@@ -1,6 +1,7 @@
 <template>
   <div class="w-11/12 mx-auto my-5">
-    <div class="flex justify-end mb-5">
+    <div class="flex justify-end mb-5 space-x-5">
+      <WorkshopSearch @update:workshopList="workshopList = $event"></WorkshopSearch>
       <WorkshopImport @update:workshopList="workshopList = $event"></WorkshopImport>
     </div>
     <el-empty description="Sin informacion" v-if="workshopList.length==0" />
