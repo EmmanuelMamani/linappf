@@ -1,9 +1,12 @@
 <template>
-  <div>Dashboard</div>
+  <div class="p-5">
+    <UserPresentation></UserPresentation>
+  </div>
 </template>
+
 <script setup>
 
-  definePageMeta({
-    layout: 'dashboard',
-  })
+definePageMeta({
+  layout: 'dashboard',
+})
 </script>
