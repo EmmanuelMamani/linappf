@@ -68,21 +68,7 @@ const activeIndex = ref("1")
 const { logout } = useSanctumAuth()
 const sanctum = useSanctumClient()
 const userStore = useUserStore()
-
-async function fetchUser() {
-  try {
-    const res = await sanctum(`/api/user`, {
-      method: 'GET',
-    })
-    userStore.setUser(res.user)
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-onMounted(() => {
-  fetchUser()
-})
+await userStore.refresh()
 
 async function handleLogout() {
   try {
