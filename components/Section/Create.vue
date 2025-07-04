@@ -28,7 +28,7 @@ const props = defineProps({
 
 const open = ref(false)
 const loading = ref(false)
-
+const emit = defineEmits(['created'])
 const form = ref({
   name: ''
 })
@@ -55,7 +55,7 @@ const handleSubmit = () => {
           order: props.order
         },
       })
-
+      emit('created', response)
       ElMessage.success('Sección creada correctamente')
       form.value.name = ''
       open.value = false

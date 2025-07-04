@@ -6,7 +6,7 @@
         <SectionTable v-for="(section) in sections" :key="section.id" :section="section" ></SectionTable>
       </div>
       <div class="flex justify-end p-5">
-        <SectionCreate :order="sections.length+1"></SectionCreate>
+        <SectionCreate :order="sections.length+1" @created="addSection"></SectionCreate>
       </div>
     </client-only>
   </div>
@@ -20,6 +20,9 @@
   })
   async function getSections() {
     sections.value = await sanctum(`/api/sections`, {method: 'GET'})
+  }
+  function addSection(newSection) {
+    sections.value.push(newSection)
   }
   onMounted(() => {
     getSections()
