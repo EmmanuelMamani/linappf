@@ -2,11 +2,12 @@
   <el-switch v-model="activeLocal"  @change="updateStatus" />
 </template>
 <script setup>
-  const props = defineProps({
-    id: { type: Number, required: true },
-    active: { type: Number, required: true },
-  })
-  const activeLocal = ref(!!props.active)
+const props = defineProps({
+  id: { type: Number, required: true },
+  active: { type: Boolean, required: true },
+})
+
+const activeLocal = ref(!!props.active)
 
   const sanctum = useSanctumClient()
 

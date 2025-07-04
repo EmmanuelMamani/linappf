@@ -6,7 +6,7 @@
         <ExtracurricularCreate :section_id="props.section.id" @created="handleCreated"></ExtracurricularCreate>
       </div>
     </div>
-    <el-table v-if="props.section.extracurriculars.length>0" :data="extracurriculars" class="w-full">
+    <el-table v-if="extracurriculars.length>0" :data="extracurriculars" class="w-full">
       <el-table-column label="Titulo">
         <template #default="scope">
           <div class="flex space-x-2 items-center">
@@ -39,7 +39,7 @@
 
       <el-table-column fixed="right" label="Activo" >
         <template #default="scope">
-          <ExtracurricularActive :id="scope.row.id" :active="scope.row.active"></ExtracurricularActive>
+          <ExtracurricularActive :id="scope.row.id" :active="!!scope.row.active"></ExtracurricularActive>
         </template>
       </el-table-column>
 
@@ -97,5 +97,4 @@
         return ''
     }
   }
-
 </script>
