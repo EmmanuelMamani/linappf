@@ -3,10 +3,10 @@
     <div class="grid grid-cols-4 gap-3">
       <div class="text-xl font-semibold col-span-3">{{props.section.name}}</div>
       <div class="justify-self-end">
-        <ExtracurricularCreate :section_id="props.section.id"></ExtracurricularCreate>
+        <ExtracurricularCreate :section_id="props.section.id" @created="handleCreated"></ExtracurricularCreate>
       </div>
     </div>
-    <el-table v-if="props.section.extracurriculars.length>0" :data="props.section.extracurriculars" class="w-full">
+    <el-table v-if="props.section.extracurriculars.length>0" :data="extracurriculars" class="w-full">
       <el-table-column prop="title" label="Titulo" />
       <el-table-column prop="institution" label="Institución" />
       <el-table-column prop="start_date" label="Inicio" />
@@ -18,4 +18,10 @@
   const props = defineProps({
     section: { type: Object, required: true }
   })
+  const extracurriculars = ref([...props.section.extracurriculars])
+
+  function handleCreated(newItem) {
+    extracurriculars.value.push(newItem)
+    extracurriculars.value.sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
+  }
 </script>
